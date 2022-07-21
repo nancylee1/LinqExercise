@@ -67,20 +67,20 @@ namespace LinqExercise
             //TODO: Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S
             //and order this in acesnding order by FirstName.
 
-            employees.Where(x => x.FirstName.StartsWith('C') || x.FirstName.StartsWith('S')).OrderBy(x => x.FirstName).ToList().ForEach(x => Console.WriteLine(x.FirstName));
+            employees.Where(x => x.FirstName.StartsWith('C') || x.FirstName.StartsWith('S')).OrderBy(x => x.FirstName).ToList().ForEach(x => Console.WriteLine(x.FullName));
             Console.WriteLine("============================\n");
 
             //TODO: Print all the employees' FullName and Age who are over the age 26 to the console and order this by Age first
             //and then by FirstName in the same result.
 
-            employees.Where(x => x.Age > 26).OrderBy(x => x.Age).ThenBy(x => x.FirstName).ToList().ForEach(x => Console.WriteLine($"Age: {x.Age}\n First Name: {x.FirstName}"));
+            employees.Where(x => x.Age > 26).OrderBy(x => x.Age).ThenBy(x => x.FirstName).ToList().ForEach(x => Console.WriteLine($"Age: {x.Age}\n FullName: {x.FullName}"));
             Console.WriteLine("============================\n");
 
             //TODO: Print the Sum and then the Average of the employees' YearsOfExperience if their YOE is less than or equal to 10 AND Age is greater than 35
             //employees.Sum(x => x.YearsOfExperience);
             //employees.Average(x => x.YearsOfExperience);
 
-            var sumAvgYOE = employees.Where(x => x.YearsOfExperience <= 10 && x.Age > 35).ToList(); 
+            var sumAvgYOE = employees.Where(x => x.YearsOfExperience <= 10 && x.Age > 35).ToList();  
 
             Console.WriteLine(sumAvgYOE.Sum(x => x.YearsOfExperience));
             Console.WriteLine(sumAvgYOE.Average(x => x.YearsOfExperience));
